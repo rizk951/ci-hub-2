@@ -41,24 +41,53 @@
         }
 
         .feature {
-            background: #f7fafc;
             padding: 25px;
             border-radius: 12px;
             margin: 10px;
             flex: 1;
             min-width: 200px;
-            transition: transform 0.3s ease;
-            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .feature.ci {
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+        }
+
+        .feature.cd {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+        }
+
+        .feature.vc {
+            background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
         }
 
         .feature:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .feature h3 {
-            color: #4c51bf;
+            color: #fff;
             margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature p {
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         .update-time {
@@ -83,15 +112,15 @@
         <p>This page demonstrates the power of automated deployment using GitHub Actions and Docker!</p>
 
         <div class="features">
-            <div class="feature">
+            <div class="feature ci">
                 <h3>Continuous Integration</h3>
                 <p>Automated testing and building</p>
             </div>
-            <div class="feature">
+            <div class="feature cd">
                 <h3>Continuous Deployment</h3>
                 <p>Automatic updates to Docker Hub</p>
             </div>
-            <div class="feature">
+            <div class="feature vc">
                 <h3>Version Control</h3>
                 <p>Track all changes in GitHub</p>
             </div>
@@ -99,7 +128,7 @@
 
         <p class="update-time">Last updated: <span id="date"></span></p>
     </div>
-    <div class="version">Version 2.1</div>
+    <div class="version">Version 2.2</div>
 
     <script>
         document.getElementById('date').textContent = new Date().toLocaleString();

@@ -21,11 +21,43 @@
         }
 
         h1 {
-            color: #333;
+            color: #2c3e50;
+            margin-bottom: 30px;
         }
 
         p {
-            color: #666;
+            color: #34495e;
+            line-height: 1.6;
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 10px;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .update-time {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-top: 20px;
+        }
+
+        .version {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            color: #95a5a6;
+            font-size: 0.8em;
         }
     </style>
 </head>
@@ -33,9 +65,27 @@
 <body>
     <div class="container">
         <h1>Welcome to CI/CD Test Page</h1>
-        <p>This page is served from a Docker container built and deployed using GitHub Actions!</p>
-        <p>Last updated: <span id="date"></span></p>
+        <p>This page demonstrates the power of automated deployment using GitHub Actions and Docker!</p>
+
+        <div class="features">
+            <div class="feature">
+                <h3>Continuous Integration</h3>
+                <p>Automated testing and building</p>
+            </div>
+            <div class="feature">
+                <h3>Continuous Deployment</h3>
+                <p>Automatic updates to Docker Hub</p>
+            </div>
+            <div class="feature">
+                <h3>Version Control</h3>
+                <p>Track all changes in GitHub</p>
+            </div>
+        </div>
+
+        <p class="update-time">Last updated: <span id="date"></span></p>
     </div>
+    <div class="version">Version 2.0</div>
+
     <script>
         document.getElementById('date').textContent = new Date().toLocaleString();
     </script>
